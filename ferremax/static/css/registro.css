@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(175, 146, 207);
+}
+
+p{
+    @font-face {
+        font-family: 'Open Sans';
+        src: url('fuente/kongtext.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+      }
+}
+
+h1{
+    text-align: center;
+    font-size: 5vh;
+    padding-bottom: 10px;
+}
+
+.log{
+    font-size: 3vh;
+}
+
+.ferre{
+    width: 500px;
+}
+
+
+.todo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.nes-input{
+    background-color: rgb(209, 167, 248);
+}
+
+.botones{
+    padding-bottom: 35px;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.password{
+    margin-top: 2%;
+}
+
+.username{
+    margin-top: 2%;
+}
+
+.cuenta{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.notification {
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .success {
+    background: #43DC7E;
+    color: white;
+  }
+  .error {
+    background: #AB3444;
+    color: white;
+    margin-bottom: 20px;
+  }
+  

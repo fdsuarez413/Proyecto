@@ -1,0 +1,252 @@
+body{
+  background-color:#f7f0f0;
+  @font-face {
+      font-family: 'Open Sans';
+      src: url('fuente/kongtext.ttf') format('truetype');
+      font-style: normal;
+      font-weight: normal;
+    }
+}
+
+/* Todo el HTML */
+
+html{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* Cuadro negro FERREMAX */
+
+.cabe{
+  display: flex;
+}
+
+.letras{
+  padding-left: 22%;
+}
+
+.hola{
+  display: flex;
+  justify-content: space-around;
+  overflow:auto;
+}
+
+.letras{
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hipervinculos Container */
+
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.head a{
+  color: rgb(255, 255, 255);
+}
+/* Hipervinculos */
+
+.head li{
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Icnono sesion */
+
+.nes-avatar{
+  margin-left: 15px;
+}
+
+
+/* Cuadrado */
+
+.mar{
+  margin-top: 5%;
+}
+
+.cuadrado{
+  height: auto;
+  position: relative;
+  border-color: black;
+  display: flex;
+}
+
+.boy{
+  margin-right: 6%;
+}
+
+.boy img{
+  width: 500px;
+  margin-left: 10%;
+  margin-top: 15%;
+}
+
+
+/* Formulario titulo */
+
+.formulario{
+  margin-top: 3%;
+  color: brown;
+}
+
+.formularioweb{
+  background-color: rgb(170, 182, 247);
+}
+
+.todo{
+  display: flex;
+  justify-self: end;
+  padding-right: 5%;
+  padding-top: 2%;
+
+}
+
+.input{
+  margin:5px 8px;
+  background-color:#EBEBEB;
+  height:30px;
+  width:40%;
+  border-left: 3px solid #e4e0d8 ;
+  padding-left:5px;
+  font-size:75%;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.input:focus{
+  background:rgba(234, 246, 239, 0.79);
+   outline:none;
+}
+
+.input:hover{
+ border-left: 3px solid #7a0e0e;
+   outline:none;
+}
+
+#titulo{
+    position: relative;
+top: -13px;
+    text-align:center;
+  font-size:35px;
+  height:50px;
+  margin-bottom:15px;
+  color:#7a0e0e;
+background-color:#EBEBEB;
+  border-top-left-radius:5px;
+  border-top-right-radius:5px;
+
+}
+#triangle{
+  width:0;
+  border-top:12x solid transparent;
+  border-right:12px solid transparent;
+  border-bottom:12px solid #EBEBEB;
+  border-left:12px solid transparent;
+  margin:0 auto;
+  position: relative;
+top: -13px;
+}
+
+.botones{
+  padding-top: 2%;
+}
+
+/* Telefono */
+
+.telefono{
+  margin-top: 3%;
+}
+
+.caja2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #be6b6b;
+  height: auto;
+}
+
+.slot1{
+  display: flex;
+}
+
+.slot2{
+  display: flex;
+}
+
+.slot3{
+  display: flex;
+}
+
+
+/* Footer */
+
+.pie{
+  background-color: black;
+}
+
+.redes{
+  display: grid;
+  justify-content: center;
+
+}
+
+.caja{
+  display: flex;
+  margin-bottom: 2%;
+  flex-wrap: wrap;
+}
+
+.caja p{
+  margin-top: 4%;
+  width: 75%;
+  padding-left: 5%;
+}
+
+.redes{
+  margin-top: 3%;
+}
+
+.icon-list{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row: auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  overflow:auto;
+}
+
+
+/* Footer god */
+
+.imgRedonda {
+  border-radius:150px;
+}
+
+.iconos{
+  margin-left: 6%;
+}
+
+.nosotros{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.caja img{
+  width: 15%;
+  height: 10%;
+  margin-top: 2%;
+}
+
+.grupo{
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

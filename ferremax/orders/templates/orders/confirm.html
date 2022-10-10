@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/confirm.css'%}">
+    <title>Orden de Compra</title>
+</head>
+<header>
+    <nav>
+    <div class="nes-container is-dark with-title cabe">
+        <p class="title">FERRE-MAX</p>
+        <div class="loguito">
+            <img src="../../../static/img/logo2.png" width="200" alt="Logo Empresa">
+        </div>
+        <div class="letras">
+          <h2>Ferre-Max</h2>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <div class="nes-container is-rounded is-dark">
+      <div class="head">
+        <li><a href="{% url 'index' %}" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="/contacto/" class="nav-link px-2 link-dark">Contactenos</a></li>
+        <li><a href="{% url 'productos' %}" class="nav-link px-2 link-dark">Catalogo</a></li>
+        <a href="/carrito/"><img class="nes-avatar is-rounded is-medium" alt="Carrito de compras" src="../../../static/img/cart.png" style="image-rendering: pixelated;"></a>
+        <a href="/login/"><img alt="Iniciar sesion" class="nes-avatar is-large"  src="../../../static/img/Login2.png" style="image-rendering: pixelated;"></a>
+        {% if request.user.is_authenticated %}
+  </div>
+    </div>
+    <br>
+    <h2 align="center">Mi perfil</h2>
+    <div class="nes-container is-rounded is-dark">
+      <div class="head">
+        <li><a href="{{ completeds }}">Mis pedidos</a></li>
+        <li><a href="/direcciones/">Mis direcciones</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}
+</header>
+<body>
+    
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+    <div class="cru">
+        {% include 'orders/snippets/breadcrumb.html' %}
+    </div>
+
+    <div class="">
+        <h3 align="center">Confirma tu pedido</h3>
+    </div>
+    <div class="envio">
+        
+    </div>
+    <div class="todo_titulos">
+        <div class="envio nes-container">
+            <div class="">
+                <strong class="palabra">Direccion de envio</strong>
+            </div>
+            <div class="">
+                {{ shipping_address.linea1 }}
+            </div>
+            <div class="">
+                {{ shipping_address.state }}
+            </div>
+            <div class="">
+                {{ shipping_address.reference }}
+            </div>
+            <div class="">
+                {{ shipping_address.postal_code }}
+            </div>
+        </div>
+        <div class="pago nes-container">
+            <div class="">
+                <strong class="palabra">Metodo de pago</strong>
+            </div>
+            <div class="pago2">
+                <p align="center">Pago contraEntrega</p>
+            </div>
+        </div>
+        <div class="codigo nes-container">
+            <div class="">
+                <strong class="palabra">Código promocional</strong>
+            </div>
+            <form id="promocode-form" action="{% url 'promo_codes:validate' %}">
+                <input type="text" name="code" value="{{ order.promo_code.code }}" class="nes-input is-success" placeholder="Codigo promocion" {% if order.promo_code %} readonly {% endif %}>
+            </form>
+            <div class="" id="promocode-success">
+                {% if order.promo_code %}
+                    <p align="center">Codigo aplicado exitosamente</p>
+                {% endif %}
+                <!-- Mirar la clase correcta -->
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        {% for product in cart.products.all %}
+            {% include 'orders/snippets/product.html' %}
+        {% endfor %}
+    </div>
+
+    
+        {% url 'orders:complete' as next_url %}
+        {% include 'orders/snippets/resume.html' with next_url=next_url %}
+    <div class="botones">
+        <a class="nes-btn is-error" href="{% url 'orders:cancel' %}">Cancelar orden</a>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+<script>
+
+    const form = document.getElementById('promocode-form')
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        
+        const input = this.code
+        const code = input.value
+        const url = this.action +"?code=" + code
+        const div_total = document.getElementById('order-total')
+        const div_success = document.getElementById("promocode-success")
+
+        fetch(url)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response.total)
+
+                if(response.status === true){
+
+                    div_total.innerHTML = "$" + response.total
+
+                    div_success.classList.remove('noce22-daner')
+                    div_success.classList.remove('noce22')
+
+                    div_success.innerHTML = 'Codigo aplicado exitosamente'
+
+                    input.readOnly = true
+
+                }else{
+                    div_success.innerHTML = 'Codigo no valido'
+                    div_success.classList.remove('noce22')
+                    div_success.classList.remove('noce22-danger')
+                }
+            })
+
+        
+    })
+
+</script>
+
+</html>

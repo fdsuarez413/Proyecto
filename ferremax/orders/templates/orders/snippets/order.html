@@ -1,0 +1,68 @@
+{% load product_extras %}
+<div class="card ">
+    <hr>
+    <div class="1">
+        <div class="realizado">
+            <p align=center>Pedido Realizado</p>
+        </div>
+        <div class="fecha">
+            <p align="center">{{ order.created_at }}</p>
+        </div>
+    </div>
+    <div class="todo ">
+        <div class="cajita">
+            <div class="media-cajita nes-container">
+                <div class="2">
+                    Total
+                </div>
+                <div class="total">
+                    {{ order.total | price_format }}
+                </div>
+            </div>
+            <div class="otra-cajita nes-container">
+                <div class="3">
+                    Enviado a
+                </div>
+                <div class="envio">
+                    {{ order.shipping_address.linea1 }}
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="noc nes-container">
+                {% for cp in order.cart.products_related %}
+                {% with product=cp.product %}
+                <div class="cantidad ">
+                    <div class="productos">
+                        <div class="fila ">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="Imagen del producto" width="80px" height="80px">
+                            {% endif %}
+                        </div>
+                        <div class="fila">
+                            {{ product.title }}
+                        </div>
+                        <div class="total">
+                            {{ product.price | price_format }}
+                        </div>
+                    </div>
+                </div>
+    
+    
+    
+                    <div class="cantidad-todo">
+                        <div class="cantidad">
+                            Cantidad
+                        </div>
+                        <div class="cantidad2">
+                            {{ cp.quantity }}
+                        </div>
+                        {% endwith %}
+                    </div>
+                        {% endfor %}
+                    </div>
+            
+        </div>
+    </div>
+    <br><br>
+</div>

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/detalle.css'%}">
+    <title>Detalles</title>
+</head>
+<header>
+    <nav>
+    <div class="nes-container is-dark with-title cabe">
+        <p class="title">FERRE-MAX</p>
+        <div class="loguito">
+            <img src="../../../static/img/logo2.png" width="200" alt="Logo Empresa">
+        </div>
+        <div class="letras">
+          <h2>Ferre-Max</h2>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <div class="nes-container is-rounded is-dark">
+      <div class="head">
+        <li><a href="{% url 'index' %}" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="/contacto/" class="nav-link px-2 link-dark">Contactenos</a></li>
+        <li><a href="{% url 'productos' %}" class="nav-link px-2 link-dark">Catalogo</a></li>
+        <a href="/carrito/"><img class="nes-avatar is-rounded is-medium" alt="Carrito de compras" src="../../../static/img/cart.png" style="image-rendering: pixelated;"></a>
+        <a href="/login/"><img class="nes-avatar is-rounded is-medium" alt="Iniciar sesion" src="https://www.gravatar.com/avatar?s=15" style="image-rendering: pixelated;"></a>
+        {% if request.user.is_authenticated %}
+				<li><a href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+				{% endif %}
+  </div>
+    </div>
+</header>
+<br>
+<body>
+
+    <div class="nes-container is-dark with-title">
+        <p class="title">Detalles del producto</p>
+    
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Imagen del producto" width="200" height="200">
+        {% endif %}
+        
+        <div class="h1">
+            <h1>{{product.title}}</h1>
+        </div>
+
+        <div class="h4">Precio:{{product.price}}</div>
+
+        <p>{{ product.description }}</p>
+        
+        <div class="carrito">
+            {% include 'cart/snippets/add.html' %}
+        </div>
+    
+    
+    </div>
+
+    <footer>
+    
+        <div class="grupo">
+            <i class="nes-icon is-medium heart"></i> <span class="nes-text is-error destacados">Grupo de Desarrollo WEB</span> <i class="nes-icon is-medium heart"></i>
+        </div> 
+
+        <div class="nosotros">
+            <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="../../../static/img/Harri.png"></div> <div class="profile"><h4 class="name">‎ Harrison Fierro</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/Hfierro9" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:alchemistnabi@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+            <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="../../../static/img/Adrian.jpeg"></div> <div class="profile"><h4 class="name">‎ Adrian Martinez</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/AdrianMartinezzz" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:adrianmartinezcontact@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+            <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="../../../static/img/Frank.jpeg"></div> <div class="profile"><h4 class="name">‎ Franklin Suarez</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/fdsuarez413" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:franklinsuarez904@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+            <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="../../../static/img/Nicolas.png"></div> <div class="profile"><h4 class="name">‎ Nicolas Cifuen.</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/NicolasCifuentes2" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:cifuentesbeltrann87@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

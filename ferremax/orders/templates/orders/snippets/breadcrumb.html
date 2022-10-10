@@ -1,0 +1,15 @@
+<section>
+	<nav>
+        <h3 title="Pasos para la compra" align="center">Pasos para la compra</h3>
+		<ol class="cd-multi-steps text-center custom-icons" align="center">
+            <hr>
+            {% for item in breadcrumb %}
+                {% if item.active %}
+                    <a class="item" href="{{ item.url }}">{{ item.title }}</a>
+                {% else %}
+                    <span class="item active">{{ item.title }}</span>
+                {% endif %}
+            {% endfor %}
+		</ol>
+	</nav>
+</section>

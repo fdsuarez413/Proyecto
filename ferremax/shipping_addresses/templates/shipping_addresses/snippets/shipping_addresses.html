@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-body">
+        <h3>{{ shipping_address.address }}</h3>
+            <div class="noc3">
+                {{ shipping_address.linea1 }}
+            </div>
+            <div class="title">
+                Observaciones: {{ shipping_address.reference }}
+            </div>
+    </div>
+
+    {% if edit %}
+        <div class="noce8">
+            <a href="{% url 'shipping_addresses:update' shipping_address.pk %}">Editar</a>
+            {% if shipping_address.default %}
+                <div class="texy info">
+                    Direccion principal
+                </div>
+            {% else %}
+            <a href="{% url 'shipping_addresses:default' shipping_address.pk %}">Default</a>
+            <a href="{% url 'shipping_addresses:delete' shipping_address.pk %}">Eliminar</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

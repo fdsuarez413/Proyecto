@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
+    <title>: Crear cuenta :</title>
+</head>
+<body>
+    
+    <div class="todo">
+        <h1>FerreByte</h1>
+<div class="nes-container with-title is-centered is-dark ferre">
+    <div class="log">
+        <p>Cree su cuenta</p>
+    </div>
+  </div>
+
+  {% if messages %}
+  {% for message in messages %}
+  <div class="notification {{ message.tags}}">
+      {{ message }}
+  </div>
+  {% endfor %}
+{% endif %}
+
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="cuenta">
+        <a href="{% url 'login' %}" class="nes-badge cuenta">
+            <span class="is-error">¿Ya tienes una cuenta?</span>
+          </a>
+    </div>
+    
+    <div class="botones">
+        <button type="submit" class="nes-btn is-primary">Enviar</button>
+        <button type="reset" class="nes-btn is-success">Limpiar</button>
+    </div>
+
+</form>
+
+<!-- <form method="post">
+{% csrf_token %}
+<div class="nes-field username">
+    <label for="name_field">Username</label>
+    <input type="text" name="username" class="nes-input">
+</div>
+
+<div class="nes-field password">
+    <label for="name_field">PassWord</label>
+    <input type="password" name="password" class="nes-input">
+</div>
+
+<div class="nes-field password">
+    <label for="name_field">Email</label>
+    <input type="email" name="email" class="nes-input">
+</div>
+
+<div class="nes-field password">
+    <label for="name_field">Telefono</label>
+    <input type="tel" name="telefono" class="nes-input">
+</div>
+
+<div class="cuenta">
+    <a href="{% url 'login' %}" class="nes-badge cuenta">
+        <span class="is-error">¿Ya tienes una cuenta?</span>
+      </a>
+</div>
+
+<div class="botones">
+    <button type="submit" class="nes-btn is-primary">Enviar</button>
+    <button type="reset" class="nes-btn is-success">Limpiar</button>
+</div>
+</form> -->
+
+<footer>
+    <div class="pie">
+        <section class="icon-list">
+            <a href="https://www.facebook.com/profile.php?id=100081836352334"><i class="nes-icon facebook is-large contenido"></i></a>
+            <a href="https://www.instagram.com/ferremax707/"><i class="nes-icon instagram is-large contenido"></i></a>
+            <a href="mailto:ferremax707@gmail.com?Subject=Interesado%20en%20los%20Productos"><i class="nes-icon gmail is-large contenido"></i></a>
+            <a href="https://wa.link/6sxs6q"><i class="nes-icon whatsapp is-large contenido"></i></a>
+          </section>
+    </div>
+    </footer>
+
+</body>
+</html>

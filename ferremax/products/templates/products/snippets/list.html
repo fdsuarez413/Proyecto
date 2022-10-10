@@ -1,0 +1,5 @@
+<div class="nes-container with-title productos">
+    {% for object in object_list %}
+    {% include 'products/snippets/product.html' with product=object %}
+    {%  endfor %}
+</div>

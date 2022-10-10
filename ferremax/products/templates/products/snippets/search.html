@@ -1,0 +1,12 @@
+<form action="{% url 'products:search' %}">
+    <div class="input-group">
+        <div class="buscar">
+            <div class="listado">
+                <input type="text" name="q" value="{{ query }}" class="nes-input is-warning" placeholder="Buscar">
+            </div>
+            <div class="boton">
+                <button type="submit" name="" value="Buscar" class="nes-btn is-warning">Buscar</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,230 @@
+body{
+    background-color: #f3f3f3;
+    @font-face {
+        font-family: 'Open Sans';
+        src: url('fuente/kongtext.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+      }
+}
+
+/* Todo el HTML */
+
+html{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Cuadro negro FERREMAX */
+
+.nes-container{
+    display: flex;
+}
+
+.cabe{
+    overflow:auto;
+}
+
+/* Hipervinculos Container */
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-left: 10%;
+}
+
+.head a{
+    color: rgb(255, 255, 255);
+}
+/* Hipervinculos */
+
+.head li{
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Icnono sesion */
+
+.nes-avatar{
+    margin-left: 15px;
+}
+
+/* Carrusel */
+
+.nes-container{
+    background-color: #afb2b7;
+}
+
+.contenedor {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    background-color: #726b5a;
+    border-radius: 15px;
+}
+
+.imagen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.imagen img {
+    height: 90%;
+    width: 89%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.texto {
+    position: absolute;
+    width: 89.2%;
+    text-align: center;
+    top: 85%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: black;
+    margin-left: 5.5%;
+}
+
+.contenedor a{
+    position: absolute;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    top : 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.siguiente {
+    left: 97%;
+}
+
+.boton {
+    position: absolute;
+    top: 5%;
+    left: 95%;
+}
+
+.puntos {
+    position: absolute;
+    top: 93%;
+    width: 100%;
+    text-align: center;
+}
+.punto {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.punto:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+.contenedor a:hover {
+    color: gray;
+}
+
+.actual {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+}
+.activo {
+    background-color: gray;
+}
+
+.texto1{
+    display: flex;
+    width: 30%;
+    padding-left: 2%;
+    margin-left: 8%;
+    margin-top: 1%;
+    color:black;
+}
+
+/* Destacados */
+
+.destacados{
+    text-align: center;
+    font-size: 39px;
+}
+
+/* Categorias */
+
+.categorias{
+    display: grid;
+  grid-template-rows: auto, auto;
+  grid-template-columns: auto, auto, auto, auto;
+}
+
+.cuadrito{
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+}
+
+
+/* Footer */
+
+.pie{
+    background-color: black;
+}
+
+.redes{
+    display: grid;
+    justify-content: center;
+
+}
+
+.caja{
+    display: flex;
+    margin-bottom: 2%;
+}
+
+.caja p{
+    margin-top: 4%;
+    width: 85%;
+}
+
+.caja img{
+    width: 20%;
+    height: 10%;
+    margin-top: 2%;
+}
+
+.redes{
+    margin-top: 3%;
+}
+
+.nosotros{
+    margin-left: 0%;
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    margin-bottom: 2%;
+}
+
+.grupo{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+  
+.imgRedonda {
+    border-radius:150px;
+}
+
+.iconos{
+    margin-left: 6%;
+}

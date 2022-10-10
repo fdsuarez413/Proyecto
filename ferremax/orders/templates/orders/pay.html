@@ -1,0 +1,67 @@
+{% load static %}
+{% url 'orders:completeds' as completeds %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/pay.css'%}">
+    <title>Pagos</title>
+</head>
+<header>
+  <nav>
+  <div class="nes-container is-dark with-title cabe">
+      <p class="title">FERRE-MAX</p>
+      <div class="loguito">
+          <img src="../../../../../../static/img/logo2.png" width="200" alt="Logo Empresa">
+      </div>
+      <div class="letras">
+        <h2>Ferre-Max</h2>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="nes-container is-rounded is-dark">
+    <div class="head">
+      <li><a href="{% url 'index' %}" class="nav-link px-2 link-secondary">Inicio</a></li>
+      <li><a href="/contacto/" class="nav-link px-2 link-dark">Contactenos</a></li>
+      <li><a href="{% url 'productos' %}" class="nav-link px-2 link-dark">Catalogo</a></li>
+      <a href="/carrito/"><img class="nes-avatar is-rounded is-medium" alt="Carrito de compras" src="../../../static/img/cart.png" style="image-rendering: pixelated;"></a>
+      <a href="/login/"><img alt="Iniciar sesion" class="nes-avatar is-large"  src="../../../static/img/Login2.png" style="image-rendering: pixelated;"></a>
+      {% if request.user.is_authenticated %}
+</div>
+  </div>
+  <br>
+  <h2 align="center">Mi perfil - {{ user.username }}</h2>
+  <div class="nes-container is-rounded is-dark">
+    <div class="head">
+      <li><a href="{{ completeds }}">Mis pedidos</a></li>
+      <li><a href="/direcciones/">Mis direcciones</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+</header>
+<body>
+    
+    <br>
+    {% include 'orders/snippets/breadcrumb.html' %}
+
+    <br>
+    <br>
+    <h1 align="center">Tenga en cuenta:</h1>
+    <div class="duda">
+        <p align="center">Todas las compras que usted realice seran pagadas el mismo día de la entrega, ya que no contamos con otros medios de pagos, si tiene alguna duda, contactenos.</p>
+    </div>
+
+    <div class="boton">
+        <a class="nes-btn is-success" href="{% url 'orders:confirm' %}">Confirmacion</a>
+    </div>
+
+</body>
+</html>

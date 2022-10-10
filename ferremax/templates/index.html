@@ -1,0 +1,236 @@
+{% url 'orders:completeds' as completeds %}
+{% url 'billing_profiles:create' as billing_profiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/index3.css'%}">
+    <title>FerreByte</title>
+</head>
+<header>
+  <nav>
+  <div class="nes-container is-dark with-title cabe">
+      <p class="title">FERRE-MAX</p>
+      <div class="loguito">
+          <img src="../../../../../../static/img/logo2.png" width="200" alt="Logo Empresa">
+      </div>
+      <div class="letras">
+        <h2>Ferre-Max</h2>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="nes-container is-rounded is-dark">
+    <div class="head">
+      <li><a href="{% url 'index' %}" class="nav-link px-2 link-secondary">Inicio</a></li>
+      <li><a href="/contacto/" class="nav-link px-2 link-dark">Contactenos</a></li>
+      <li><a href="{% url 'productos' %}" class="nav-link px-2 link-dark">Catalogo</a></li>
+      <a href="/carrito/"><img class="nes-avatar is-rounded is-medium" alt="Carrito de compras" src="../../../static/img/cart.png" style="image-rendering: pixelated;"></a>
+      <a href="/login/"><img alt="Iniciar sesion" class="nes-avatar is-large"  src="../../../static/img/Login2.png" style="image-rendering: pixelated;"></a>
+      {% if request.user.is_authenticated %}
+</div>
+  </div>
+  <br>
+  <h2 align="center">Mi perfil - {{ user.username }}</h2>
+  <div class="nes-container is-rounded is-dark">
+    <div class="head">
+      <li><a href="{{ completeds }}">Mis pedidos</a></li>
+      <li><a href="/direcciones/">Mis direcciones</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+    </div>
+  </div>
+  {% else %}
+  {% endif %}
+</header>
+
+
+<body>
+
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert {% if message.tags == 'success'%}alert-success{%else%}alert-danger{%endif%}">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+    <br>
+    <div class="nes-container is-rounded hola">
+        <div class="contenedor">
+			<div class="imagen actual">
+				<img src="static/img/fondi1.jpg" />
+				<div class="texto">Las mejores Herramientas aqui</div>
+			</div>
+			
+			<div class="imagen">
+				<img src="static/img/fondi2.jpg" />
+				<div class="texto">LLevando calidad y servicio</div>
+			</div>
+			
+			<div class="imagen">
+				<img src="static/img/aaa.gif"/>
+				<div class="texto">Trabajando junto a ustedes</div>
+			</div>
+			
+			<div class="imagen">
+				<img src="https://st3.depositphotos.com/2075965/13326/v/450/depositphotos_133260598-stock-illustration-grand-opening-card-with-ribbon.jpg"/>
+				<div class="texto">Nuestro sitio web oficial</div>
+			</div>
+			
+			<a href="#" class="anterior" onclick="anterior();">&#10094;</a>
+			<a href="#" class="siguiente" onclick="siguiente();">&#10095;</a>
+			
+			<div class="puntos">
+				<span class="punto activo" onclick="mostrar(0);"></span>
+				<span class="punto" onclick="mostrar(1);"></span>
+				<span class="punto" onclick="mostrar(2);"></span>
+				<span class="punto" onclick="mostrar(3);"></span>
+			</div>
+			
+			<div class="boton">
+				<a href="#">
+					<img src="https://cdn-icons-png.flaticon.com/512/1023/1023047.png" width="20px" id="btn" onclick="playpause();" />
+				</a>
+			</div>
+		</div>
+        <div class="texto1">
+            <p>Nos complance darte la bienvenida a nuestro primer sitio oficial, donde los estaremos acompañando de una forma más comoda, agil y encantadora.<br>Esperamos que la navegacion sea de su agrado</p>
+        </div>
+      </div>
+        <div class="espacio">
+            <br>
+      </div>
+      <br>
+      <div class="destacados">
+        <i class="nes-icon is-medium star"></i> <span class="nes-text is-primary destacados">Nuestros Destacados</span> <i class="nes-icon is-medium star"></i>
+      </div> 
+      <br>
+      <br>
+      <br>
+
+      <div class="categorias">
+        <div class="nes-container is-rounded is-dark cuadrito">
+            <img src="static/img/bombipixel.webp" width="200px" alt="Iluminacion">
+            <p align="center">Bombillos, Crucetas y todo para la conexion de iluminacion de su hogar.</p>
+            <a href="{% url 'productos' %}"><button type="button" class="nes-btn is-warning">Más productos</button></a>
+        </div>
+          <div class="nes-container is-rounded is-dark cuadrito">
+            <img src="static/img/pico.png" width="120px" alt="Iluminacion">
+            <p align="center">Martillos, Alicates, Sierras mecanicas, Herramientas electricas y mucho mas.</p>
+            <a href="{% url 'productos' %}"><button type="button" class="nes-btn is-warning">Más productos</button></a>
+        </div>
+          <div class="nes-container is-rounded is-dark cuadrito">
+            <img src="static/img/torni2.png" width="120px" alt="Iluminacion">
+            <p align="center">Tornillos de todo tipo, arandelas, Puntillas, Tuercas y todo en accesorios.</p>
+            <a href="{% url 'productos' %}"><button type="button" class="nes-btn is-warning">Más productos</button></a>
+        </div>
+          <div class="nes-container is-rounded is-dark cuadrito">
+            <img src="static/img/170px-Mario_pipe.pntubo.png" width="100px"alt="Iluminacion">
+            <p align="center">Plomeria, Tubos PVC, Tuberia acero inoxidable, galvanizadas, Pegantes y mas.</p>
+            <a href="{% url 'productos' %}"><button type="button" class="nes-btn is-warning">Más productos</button></a>
+        </div>
+      </div>
+
+<footer>
+    <br><br>
+    <div class="pie">
+    <p> ‎ ‎  </p>
+    </div>
+    <div class="caja">
+      <img src="static/img/logo2.png" alt="Logo">
+        <p align="center">Si tienes alguna sugerencia que creas que puede aportar al proyecto puedes contactarme al este correo ferremax@gmail.com, estaré muy agradecido con tu feedback para continuar mejorando.</p>
+        <div class="redes">
+            <section class="icon-list">
+                <a href="https://www.facebook.com/profile.php?id=100081836352334"><i class="nes-icon facebook is-large contenido"></i></a>
+                <a href="https://www.instagram.com/ferremax707/"><i class="nes-icon instagram is-large contenido"></i></a>
+                <a href="mailto:ferremax707@gmail.com?Subject=Interesado%20en%20los%20Productos"><i class="nes-icon gmail is-large contenido"></i></a>
+                <a href="https://wa.link/6sxs6q"><i class="nes-icon whatsapp is-large contenido"></i></a>
+              </section>
+            </div>
+    </div>
+
+    <div class="pie">
+        <p> ‎ ‎  </p>
+    </div>
+
+    <div class="grupo">
+      <i class="nes-icon is-medium heart"></i> <span class="nes-text is-error destacados">Grupo de Desarrollo WEB</span> <i class="nes-icon is-medium heart"></i>
+    </div> 
+
+    <div class="nosotros">
+        <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="static/img/Harri.png"></div> <div class="profile"><h4 class="name">‎ Harrison Fierro</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/Hfierro9" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:alchemistnabi@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+        <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="static/img/Adrian.jpeg"></div> <div class="profile"><h4 class="name">‎ Adrian Martinez</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/AdrianMartinezzz" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:adrianmartinezcontact@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+        <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="static/img/Frank.jpeg"></div> <div class="profile"><h4 class="name">‎ Franklin Suarez</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/fdsuarez413" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:franklinsuarez904@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+        <section class="nes-container is-dark member-card box"><div class="avatar"><img width="80px" alt="Miembro de Desarrollo" class="imgRedonda" src="static/img/Nicolas.png"></div> <div class="profile"><h4 class="name">‎ Nicolas Cifuen.</h4> <p>‎ Desarrollador</p> <div class="iconos"><a href="https://github.com/NicolasCifuentes2" target="_blank" rel="noopener" aria-label="github"> <i class="nes-icon github is-medium"></i></a> <a href="mailto:cifuentesbeltrann87@gmail.com?Subject=Interesado%20en%20el%20Desarrollo" target="_blank" rel="noopener"><i class="nes-icon gmail is-medium"></i></a></div></div></section>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+
+      <script>
+        var actual = 0;
+			function puntos(n){
+				var ptn = document.getElementsByClassName("punto");
+				for(i = 0; i<ptn.length; i++){
+					if(ptn[i].className.includes("activo")){
+						ptn[i].className = ptn[i].className.replace("activo", "");
+						break;
+					}
+				}
+				ptn[n].className += " activo";
+			}
+			function mostrar(n){
+				var imagenes = document.getElementsByClassName("imagen");
+				for(i = 0; i< imagenes.length; i++){
+					if(imagenes[i].className.includes("actual")){
+						imagenes[i].className = imagenes[i].className.replace("actual", "");
+						break;
+					}
+				}
+				actual = n;
+				imagenes[n].className += " actual";
+				puntos(n);
+			}
+			
+			function siguiente(){
+				actual++;
+				if(actual > 3){
+					actual = 0;
+				}
+				mostrar(actual);
+			}
+			function anterior(){
+				actual--;
+				if(actual < 0){
+					actual = 3;
+				}
+				mostrar(actual);
+			}
+			
+			var velocidad = 3000;
+			var play = setInterval("siguiente()", velocidad);
+			
+			function playpause(){
+				var boton = document.getElementById("btn");
+				if(play == null){
+					boton.src = "https://cdn-icons-png.flaticon.com/512/1023/1023047.png";
+					play = setInterval("siguiente()", velocidad);
+				} else {
+					clearInterval(play);
+					play = null;
+					boton.src = "https://toppng.com/uploads/preview/acman-game-play-tbt-old-tumblr-art-love-emojis-emotico-yin-yang-pixel-art-115630124688ehoywm8u7.png";
+				}
+			}
+      </script>
+</body>
+</html>

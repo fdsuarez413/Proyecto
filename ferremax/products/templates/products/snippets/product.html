@@ -1,0 +1,13 @@
+<div class="nes-container is-dark with-title">
+   <p class="title">{{ product.title }}</p>
+   <div class="pro1">
+      {% if product.image %}
+      <img src="{{ product.image.url }}" alt="Imagen del producto" height="200" width="200">
+      {% endif %}
+   </div>
+   <div class="cart-body">
+      <h3>{{ product.title }}</h3>
+      <h3>{{ product.price }}</h3>
+      <a class="button" href="{% url 'products:detalles' product.slug %}">Ver más</a>
+   </div>
+ </div>

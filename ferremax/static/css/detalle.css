@@ -1,0 +1,101 @@
+.boton{
+    margin-top: 1%;
+}
+
+html{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Cuadro negro FERREMAX */
+
+.cabe{
+    display: flex;
+}
+
+.letras{
+    padding-left: 22%;
+}
+
+.hola{
+    display: flex;
+    justify-content: space-around;
+    overflow:auto;
+}
+
+.letras{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+}
+/* Hipervinculos Container */
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    overflow:auto;
+}
+
+.head a{
+    color: rgb(255, 255, 255);
+}
+/* Hipervinculos */
+
+.head li{
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Icnono sesion */
+
+.nes-avatar{
+    margin-left: 15px;
+}
+
+
+
+
+
+
+
+/* Footer god */
+
+.grupo{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+  
+.imgRedonda {
+    border-radius:150px;
+}
+
+.iconos{
+    margin-left: 6%;
+}
+
+.box{
+    display: flex;
+    width: auto;
+    overflow-wrap: break-word;
+}
+
+.nosotros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.grupo{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.destacados{
+    text-align: center;
+    font-size: 39px;
+}

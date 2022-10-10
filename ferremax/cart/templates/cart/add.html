@@ -1,0 +1,51 @@
+{% load product_extras %}
+{% load cart_extras %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="{% static 'css/add.css'%}">
+    <title>Se ha agregado con exito</title>
+</head>
+<body>
+
+    <div class="nes-container with-title is-centered cuadro">
+        <p class="title">Se ha agregado correctamente</p>
+        <div class="nose">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Imagen del producto" width="200" height="200">
+            {% endif %}
+            <div class="descripcion">
+                {{ quantity | quantity_add_format }} al carrito
+            </div>
+            <div class="url">
+                <a href="{% url 'products:detalles' product.slug %}">{{ product.title }}</a>
+            </div>
+            <div class="precio">
+                {{ product.price | price_format }}
+            </div>
+            <div class="ver_carrito">
+                <a href="{% url 'cart:cart' %}">Ver Carrito</a>
+            </div>
+        </div>
+    </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        Swal.fire({
+            title: 'Un producto se ha añadido correctamente',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
+</script>
+</body>
+</html>

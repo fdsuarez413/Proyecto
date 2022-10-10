@@ -1,0 +1,156 @@
+body{
+    background-color: #f7f0f0;
+    @font-face {
+        font-family: 'Open Sans';
+        src: url('fuente/kongtext.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+      }
+}
+
+/* Todo el HTML */
+
+html{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Cuadro negro FERREMAX */
+
+.cabe{
+    display: flex;
+    overflow:auto;
+}
+
+.letras{
+    padding-left: 22%;
+}
+
+.hola{
+    display: flex;
+    justify-content: space-around;
+    overflow:auto;
+}
+
+.letras{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+}
+/* Hipervinculos Container */
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    overflow:auto;
+}
+
+.head a{
+    color: rgb(255, 255, 255);
+}
+/* Hipervinculos */
+
+.head li{
+    list-style: none;
+    padding-left: 20px;
+}
+
+/* Icnono sesion */
+
+.nes-avatar{
+    margin-left: 15px;
+}
+
+/* Footer */
+
+.pie{
+    background-color: black;
+}
+
+.redes{
+    display: grid;
+    justify-content: center;
+
+}
+
+.caja{
+    display: flex;
+    margin-bottom: 2%;
+    flex-wrap: wrap;
+}
+
+.caja p{
+    margin-top: 4%;
+    width: 75%;
+    padding-left: 5%;
+}
+
+.redes{
+    margin-top: 3%;
+}
+
+.icon-list{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row: auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    overflow:auto;
+}
+
+
+/* Footer god */
+
+.imgRedonda {
+    border-radius:150px;
+}
+
+.iconos{
+    margin-left: 6%;
+}
+
+.nosotros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.caja img{
+    width: 15%;
+    height: 10%;
+    margin-top: 2%;
+}
+
+.grupo{
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Copiar hasta aqui Header y Footer */
+
+
+.pasos{
+    margin-top: 2%;
+}
+
+.cuadrito-direccion{
+    margin-top: 5%;
+}
+
+.no-direccion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.nes-badge{
+    width: 400px;
+}

@@ -1,0 +1,17 @@
+{% load product_extras %}
+
+<div class="todo">
+    <div class="todo_img">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="Imagen del producto" width="150px" height="150px">
+        {% endif %} 
+    </div>
+    <div class="todo_p">
+        <strong>
+            <a href="{% url 'products:detalles' product.slug %}">
+                {{ product.title }}
+            </a>
+        </strong>
+        <strong>{{ product.price | price_format }}</strong>
+    </div>
+</div>

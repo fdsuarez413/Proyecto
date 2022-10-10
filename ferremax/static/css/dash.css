@@ -1,0 +1,18 @@
+[class*=sidebar-dark-] {
+    background-color: rgb(170, 182, 247);
+}
+
+[class*=sidebar-dark-] .nav-header {
+    background-color: inherit;
+    color: #000000;
+    font-size: 1.5vh;
+    font-weight: bold;
+}
+
+.accent-primary [class*=sidebar-dark-] .sidebar a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link) {
+    color: #000000;
+}
+
+body{
+    background-color: whitesmoke;
+}

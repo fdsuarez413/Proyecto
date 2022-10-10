@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/reg-addres1.css' %}">
+    <title>Nueva Direccion</title>
+</head>
+<body>
+
+    <div class="todo">
+        <h1>FerreByte</h1>
+        <div class="nes-container with-title is-centered is-dark ferre">
+            <div class="log">
+                <p>Agregue su Direccion</p>
+            </div>
+        </div>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="notification {{ message.tags}}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="grupo33">
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.errors %}
+                {{ field.errors }}
+                {% endif %}
+
+            </div>
+            {% endfor %}
+
+        <div class="botones">
+            <button type="submit" class="nes-btn is-primary">Enviar</button>
+        </div>
+
+        </form>
+
+
+        <footer>
+            <div class="pie">
+                <section class="icon-list">
+                    <a href="https://www.facebook.com/profile.php?id=100081836352334"><i
+                            class="nes-icon facebook is-large contenido"></i></a>
+                    <a href="https://www.instagram.com/ferremax707/"><i
+                            class="nes-icon instagram is-large contenido"></i></a>
+                    <a href="mailto:ferremax707@gmail.com?Subject=Interesado%20en%20los%20Productos"><i
+                            class="nes-icon gmail is-large contenido"></i></a>
+                    <a href="https://wa.link/6sxs6q"><i class="nes-icon whatsapp is-large contenido"></i></a>
+                </section>
+            </div>
+        </footer>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+body{
+  background-color: #fce4b4;
+  @font-face {
+      font-family: 'Open Sans';
+      src: url('fuente/kongtext.ttf') format('truetype');
+      font-style: normal;
+      font-weight: normal;
+    }
+}
+
+/* Todo el HTML */
+
+html{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* Cuadro negro FERREMAX */
+
+.ferre{
+  display: flex;
+}
+
+/* Hipervinculos Container */
+
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-left: 10%;
+}
+
+/* Hipervinculos */
+
+.head li{
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Icnono sesion */
+
+.nes-avatar{
+  margin-left: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+
+.pie{
+  background-color: black;
+}
+
+.redes{
+  display: grid;
+  justify-content: center;
+
+}
+
+.caja{
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.caja p{
+  margin-top: 4%;
+  width: 85%;
+}
+
+.caja img{
+  width: 20%;
+  height: 10%;
+  margin-top: 2%;
+}
+
+.redes{
+  margin-top: 3%;
+}
+
+.grupo{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.destacados{
+  font-size: 39px;
+}
+
+
+
+
+.promo{
+  font-size: 38px;
+  text-align: center;
+  margin-top: 3%;
+  color: rgb(20, 22, 124);
+}
+
+.promo2{
+  font-size: 38px;
+  text-align: center;
+  margin-top: 3%;
+  color: rgb(80, 30, 128);
+}
+
+
+.cuadro{
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.cuadrito{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.texto{
+  padding-top: 2%;
+}
+
+.caja2{
+  width: 70%;
+  margin-left: 15%;
+}
+
+
+/* Seleccion de la semana */
+
+.seg_cuadro{
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "slot1 . slot3"
+    ". slot2 ."
+    "slot4 . slot5";
+}
+
+.slot1 { grid-area: slot1; }
+
+.slot2 { grid-area: slot2; }
+
+.slot3 { grid-area: slot3; }
+
+.slot4 { grid-area: slot4; }
+
+.slot5 { grid-area: slot5; }
+
+.slot1, .slot2, .slot3, .slot4, .slot5{
+  height: auto;
+}
+
+.slot1, .slot3, .slot4, .slot5{
+  background-image: url(https://media.istockphoto.com/vectors/pixel-art-dithering-background-vector-id910098172?k=20&m=910098172&s=170667a&w=0&h=PBEYZRb6HyixHsRs56u4JIE2M56PA3OFFUvtZTyZy-Q=);
+  background-repeat:no-repeat;
+  background-size: 300%;
+}
+
+.slot2{
+  background-image: url(https://media.istockphoto.com/vectors/pixel-art-dithering-gradient-color-vector-id1279840158?k=20&m=1279840158&s=170667a&w=0&h=EBfPKQC8Zc5a1r5DuTmCjd227b1M_baoCnwiiHeu-SM=);
+  background-repeat:no-repeat;
+  background-size: 300%;
+}
+
+.slot2 p{
+  color: azure;
+}
+
+.box{
+  display: flex;
+}
+
+.nosotros{
+  margin-left: 0%;
+  width:400px;
+  height:400px;
+  display:grid;
+  grid-template-columns: 590px 590px;
+  grid-row: auto auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin-bottom: 2%;
+}
+
+.grupo{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.imgRedonda {
+  border-radius:150px;
+}
+
+.iconos{
+  margin-left: 6%;
+}
